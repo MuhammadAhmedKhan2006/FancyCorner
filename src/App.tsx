@@ -256,7 +256,7 @@ const NotificationPopup = ({ isOpen, onClose, items }: { isOpen: boolean, onClos
                   <img src={item.imageUrl} className="w-16 h-16 rounded-xl object-cover" />
                   <div className="flex-1 min-w-0">
                     <p className="text-xs font-black text-[#eebd2b] uppercase tracking-widest leading-none mb-1">{item.category}</p>
-                    <h5 className="text-sm font-bold truncate leading-tight mb-1">{item.name}</h5>
+                    <h5 className="text-sm font-bold truncate leading-tight mb-1 text-slate-900">{item.name}</h5>
                     <p className="text-[#221d10] font-black text-sm">Rs. {item.price.toLocaleString()}</p>
                   </div>
                 </div>
@@ -660,7 +660,7 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
               <LayoutDashboard className="w-6 h-6" />
             </div>
             <div>
-              <h1 className="text-lg font-black leading-none uppercase tracking-tighter">Admin Dashboard</h1>
+              <h1 className="text-lg font-black leading-none uppercase tracking-tighter text-slate-900">Admin Dashboard</h1>
               <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Management Console</p>
             </div>
           </div>
@@ -695,7 +695,7 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
           {activeTab === 'products' && (
             <div className="space-y-8">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <h2 className="text-2xl font-black uppercase tracking-tight">Active Inventory ({products.length})</h2>
+                <h2 className="text-2xl font-black uppercase tracking-tight text-slate-900">Active Inventory ({products.length})</h2>
                 <div className="flex gap-2">
                   <button onClick={() => setActiveTab('upload')} className="px-5 py-2.5 bg-[#eebd2b] text-[#221d10] rounded-xl font-bold text-sm shadow-lg shadow-[#eebd2b]/20 flex items-center gap-2">
                     <Plus className="w-4 h-4" /> Add New

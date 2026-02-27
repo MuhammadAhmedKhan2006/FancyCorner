@@ -65,7 +65,8 @@ async function seedData() {
         price: 2500,
         salePrice: 3500,
         imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuA1UVV8O5YtHmFyNHY6om6KJm2wm9KJq1PginZm5nGX87UKfM3ZCEQCviUb-jcGSDQq6lB6rBpb7z7hb_l95yM752m9n0PY1qlezTls8QcNdAoHSr81PKczmm_Lg1YVAtJNL8gCb3MdbvMRsGP9gxbI691tFw17bZTinjKQ8XU8EqoT7FHPVWYYcIU6nQlaiiDruO8ZrkrRiOz7UQPpzLnltZWsWYkHPE3PMNUe9fwYoQFl57o31AKLjL6dULQz7R-XHeF8716Z2DSn",
-        discountTag: "25% OFF"
+        discountTag: "25% OFF",
+        isNewItem: true
       }
     ];
     await Product.insertMany(products);
