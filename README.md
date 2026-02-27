@@ -1,20 +1,58 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Shamim Plastic House & Fancy Corner 🏺
 
-# Run and deploy your AI Studio app
+A professional MERN-stack e-commerce platform designed for **Shamim Plastic House & Fancy Corner**. This application allows customers to browse high-quality plasticware and home decor items while providing a secure admin panel for inventory management.
 
-This contains everything you need to run your app locally.
+## 🌐 Live Website
+**View the store here:** [https://fancy-corner-sq97.vercel.app/](https://fancy-corner-sq97.vercel.app/)
 
-View your app in AI Studio: https://ai.studio/apps/86e80491-5a48-4223-b0cb-172c6303437c
+---
 
-## Run Locally
+## ✨ Features
+* **Dynamic Product Grid:** Automatically displays categories and products from the database.
+* **Modern Design:** Fully responsive UI built with React, Tailwind CSS, and TypeScript.
+* **Secure Admin Panel:** Protected route for adding, editing, and deleting products.
+* **Image Optimization:** Fast-loading product images powered by Cloudinary.
+* **Production Ready:** Optimized for Vercel with serverless functions and dynamic build handling.
 
-**Prerequisites:**  Node.js
+## 🛠️ Tech Stack
+* **Frontend:** React.js, Vite, TypeScript, Tailwind CSS
+* **Backend:** Node.js, Express.js (TypeScript)
+* **Database:** MongoDB Atlas
+* **Deployment:** Vercel
 
+## ⚙️ Setup & Installation
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1.  **Clone the Repository:**
+    ```bash
+    git clone [https://github.com/MuhammadAhmedKhan2006/FancyCorner.git](https://github.com/MuhammadAhmedKhan2006/FancyCorner.git)
+    cd FancyCorner
+    ```
+
+2.  **Install Dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Environment Variables:**
+    Create a `.env` file in the root and add your credentials:
+    ```env
+    MONGODB_URI=your_mongodb_atlas_connection_string
+    CLOUDINARY_CLOUD_NAME=your_cloud_name
+    ADMIN_PASSWORD=shamim2026
+    ```
+
+4.  **Run Locally:**
+    ```bash
+    npm run dev
+    ```
+
+---
+
+## 🛠️ Deployment Configuration
+The project includes a custom `vercel.json` and a dynamic server configuration to bypass Rollup/Vite module errors on Vercel's Linux environment. This ensures the backend stays stable 24/7 without crashing.
+
+## 📄 License
+This project is private and intended for the use of Shamim Plastic House.
+
+---
+*Developed by [Muhammad Ahmed Khan](https://github.com/MuhammadAhmedKhan2006)*
