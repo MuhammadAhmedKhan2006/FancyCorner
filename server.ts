@@ -1,5 +1,5 @@
 import express from "express";
-import { createServer as createViteServer } from "vite";
+// Vite is imported dynamically in dev mode to prevent production crashes
 import mongoose from "mongoose";
 import path from "path";
 import cors from "cors";
@@ -9,10 +9,13 @@ dotenv.config();
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/ShamimHouse";
 
-// MongoDB Connection
+// MongoDB Connection with improved error handling for production
 mongoose.connect(MONGODB_URI)
-  .then(() => console.log("Connected to MongoDB Atlas"))
-  .catch(err => console.error("MongoDB connection error:", err));
+  .then(() => console.log("Successfully connected to MongoDB Atlas"))
+  .catch(err => {
+    console.error("CRITICAL: MongoDB connection error:", err);
+    console.log("Check if MONGODB_URI is correct in Vercel settings and if IP 0.0.0.0/0 is allowed.");
+  });
 
 // Schemas
 const categorySchema = new mongoose.Schema({
@@ -141,8 +144,9 @@ async function startServer() {
     }
   });
 
-  // Vite middleware for development
+  // Vite middleware for development - Loaded dynamically to avoid production dependency on Vite/Rollup
   if (process.env.NODE_ENV !== "production") {
+    const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
