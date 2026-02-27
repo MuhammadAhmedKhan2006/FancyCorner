@@ -55,9 +55,8 @@ const Header = ({ onAdminClick, onHomeClick, notifications, onNotificationClick 
         >
           <span className="material-symbols-outlined text-slate-700 dark:text-slate-300 text-2xl">notifications</span>
           {notifications.length > 0 && (
-            <span className="absolute top-2 right-2 flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
+            <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center bg-red-500 text-white text-[10px] font-black rounded-full shadow-lg border-2 border-[#f8f7f6]">
+              {notifications.length}
             </span>
           )}
         </button>
@@ -115,8 +114,8 @@ const Footer = () => (
           <li className="flex gap-3">
             <span className="material-symbols-outlined text-[#eebd2b] text-base">phone</span>
             <div>
-              <p>Shamim Plastic House (Shop 67): 0333-3152019</p>
-              <p>Fancy Corner (Shop 30): 0333-3152018</p>
+              <p>Shamim Plastic House (Shop 67): 0333-3152018</p>
+              <p>Fancy Corner (Shop 30): 0333-3152019</p>
             </div>
           </li>
           <li className="flex gap-3">
@@ -151,12 +150,12 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
   }, [onComplete]);
 
   return (
-    <div className="fixed inset-0 bg-[#f8f7f6] flex flex-col items-center justify-center p-4 z-[100]">
+    <div className="fixed inset-0 bg-[#f8f7f6] flex flex-col items-center justify-center p-4 z-[100] text-slate-900">
       <div className="w-24 h-24 bg-[#eebd2b] rounded-full flex items-center justify-center mb-8 shadow-2xl">
         <span className="material-symbols-outlined text-[#221d10] text-5xl">diamond</span>
       </div>
-      <h1 className="text-3xl font-black mb-2 urdu-text" dir="rtl">شمیم پلاسٹک ہاؤس</h1>
-      <h2 className="text-xl font-bold tracking-tight mb-8">Shamim Plastic House</h2>
+      <h1 className="text-3xl font-black mb-2 urdu-text text-[#221d10]" dir="rtl">شمیم پلاسٹک ہاؤس</h1>
+      <h2 className="text-xl font-bold tracking-tight mb-8 text-slate-800">Shamim Plastic House</h2>
       <div className="w-full max-w-xs bg-slate-200 h-1.5 rounded-full overflow-hidden">
         <motion.div
           className="h-full bg-[#eebd2b]"
@@ -164,7 +163,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
           animate={{ width: `${progress}%` }}
         />
       </div>
-      <p className="mt-4 text-slate-400 text-sm font-medium uppercase tracking-[0.2em]">{progress}% Loading Luxury</p>
+      <p className="mt-4 text-slate-500 text-sm font-bold uppercase tracking-[0.2em]">{progress}% Loading Luxury</p>
     </div>
   );
 };
@@ -340,7 +339,7 @@ const HomeScreen = ({ categories, onCategoryClick }: { categories: Category[], o
               </div>
               <div>
                 <h4 className="font-bold">Location</h4>
-                <p className="text-sm text-slate-500">Hyderi Farhan Market, North Nazimabad, Karachi</p>
+                <p className="text-sm text-slate-500">Hyderi-Farhan Market, Karachi</p>
               </div>
             </div>
             <div className="flex items-center gap-4 group">
@@ -497,45 +496,55 @@ const AdminLogin = ({ onLogin, onBack }: { onLogin: (user: any) => void, onBack:
           <div className="w-20 h-20 bg-[#eebd2b] rounded-3xl mx-auto mb-6 flex items-center justify-center text-[#221d10] shadow-xl rotate-3">
             <ShieldCheck className="w-10 h-10" />
           </div>
-          <h2 className="text-3xl font-black mb-2 uppercase tracking-tighter">Admin Portal</h2>
+          <h2 className="text-3xl font-black mb-2 uppercase tracking-tighter text-slate-900">Admin Portal</h2>
           <p className="text-slate-500 font-bold uppercase tracking-widest text-[10px]">Secure Management Access</p>
         </div>
         <div className="bg-white rounded-3xl p-8 shadow-2xl border border-slate-100 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-2 h-full bg-[#eebd2b]"></div>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-              <label className="text-xs font-black uppercase tracking-widest text-slate-500 ml-1"></label>
+              <label className="text-xs font-black uppercase tracking-widest text-slate-500 ml-1">Username / ID</label>
               <div className="relative">
-                <Store className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-300" />
+                <Store className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                 <input
                   type="text"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 bg-slate-50 rounded-2xl border-none outline-none focus:ring-2 focus:ring-[#eebd2b] transition-all font-bold"
-                  placeholder=""
+                  className="w-full pl-12 pr-4 py-4 bg-slate-50 rounded-2xl border-2 border-slate-100 outline-none focus:ring-2 focus:ring-[#eebd2b] focus:border-transparent transition-all font-bold text-slate-900"
+                  placeholder="Enter username"
+                  required
                 />
               </div>
             </div>
             <div className="space-y-2">
               <label className="text-xs font-black uppercase tracking-widest text-slate-500 ml-1">Passkey</label>
               <div className="relative">
-                <ShieldCheck className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-300" />
+                <ShieldCheck className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                 <input
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 bg-slate-50 rounded-2xl border-none outline-none focus:ring-2 focus:ring-[#eebd2b] transition-all font-bold"
+                  className="w-full pl-12 pr-4 py-4 bg-slate-50 rounded-2xl border-2 border-slate-100 outline-none focus:ring-2 focus:ring-[#eebd2b] focus:border-transparent transition-all font-bold text-slate-900"
                   placeholder="••••••••"
+                  required
                 />
               </div>
             </div>
-            {error && <p className="text-red-500 text-xs font-bold text-center">{error}</p>}
+            {error && (
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-red-500 text-[10px] font-black uppercase tracking-widest text-center"
+              >
+                {error}
+              </motion.p>
+            )}
             <button className="w-full py-4 bg-[#221d10] text-[#f8f7f6] rounded-2xl font-black shadow-xl shadow-black/10 hover:shadow-black/20 hover:-translate-y-1 transition-all">
               ACCESS DASHBOARD
             </button>
           </form>
         </div>
-        <button onClick={onBack} className="mt-8 text-slate-400 font-bold uppercase tracking-[0.3em] text-[10px] hover:text-[#eebd2b] transition-colors w-full text-center">
+        <button onClick={onBack} className="mt-8 text-slate-500 font-bold uppercase tracking-[0.3em] text-[10px] hover:text-[#eebd2b] transition-colors w-full text-center">
           ← Back to Main Store
         </button>
       </div>
