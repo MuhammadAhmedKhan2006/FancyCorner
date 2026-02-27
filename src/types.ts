@@ -1,20 +1,20 @@
 export interface Category {
-  id: number;
+  _id?: string;
   name: string;
   slug: string;
-  image_url: string;
+  imageUrl: string;
   tag: string;
 }
 
 export interface Product {
-  id: number;
-  category_id: number;
+  _id?: string;
   name: string;
+  category: string; // slug of the category
   price: number;
-  old_price: number | null;
-  image_url: string;
-  discount_tag: string | null;
-  is_new: boolean;
+  salePrice?: number;
+  imageUrl: string;
+  discountTag?: string | null;
+  isNewItem?: boolean;
 }
 
 export type Screen = 'splash' | 'home' | 'products' | 'admin-login' | 'admin-dashboard';
